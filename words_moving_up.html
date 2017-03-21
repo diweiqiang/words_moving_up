@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .apple{
+            width:90%;
+            height:50px;
+            overflow: hidden;
+            margin:30px auto;
+            border:1px solid lightblue;
+        }
+
+        .apple li a{
+            /*height:50px;*/
+            line-height: 50px;
+            color:lightcoral;
+            /*text-indent: 20px;*/
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="apple">
+    <ul>
+        <li><a href="#">你是我的小丫小苹果 </a></li>
+        <li><a href="#">怎么爱你都不嫌多</a></li>
+        <li><a href="#">红红的小脸儿温暖我的心窝 </a></li>
+        <li><a href="#">点亮我生命的火 火火火火</a></li>
+        <li><a href="#">你是我的小丫小苹果 </a></li>
+        <li><a href="#">就像天边最美的云朵</a></li>
+        <li><a href="#">春天又来到了花开满山坡 </a></li>
+        <li><a href="#">种下希望就会收获</a></li>
+    </ul>
+</div>
+
+<script src="jquery-3.1.0.js"></script>
+<script>
+    setInterval('autoMoving(".apple")',2500);
+
+    function autoMoving(elem) {
+        $(elem).find('ul').animate({marginTop:'-50px'},800,function () {
+            /*ul中的第一个移下去后后面的自动补上来，ul占据的空间位置不变*/
+            $(this).css({marginTop:'0px'}).find('li:first').appendTo(this);
+        });
+    }
+</script>
+</body>
+</html>
